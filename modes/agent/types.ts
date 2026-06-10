@@ -28,7 +28,9 @@ export interface ActionLog {
   };
 
   status: ActionStatus;
+  userApproved?: boolean;
 }
+
 
 export type AgentConfig = {
   codebasePath: string;
