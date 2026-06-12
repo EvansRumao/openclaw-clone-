@@ -20,10 +20,13 @@ export class ActionTracker {
      return action;
   }
 
-  getActions(){}
+  getActions():readonly ActionLog[] {
+    return this.actionLogs;
+  }
 
-  getpendingMutations(){}
-  
+  getpendingMutations():ActionLog[] {
+    return this.actionLogs.filter(log => isMutationType(log.type) && log.status ==="pending");
+  }
 
   updateStatus(){}
 
