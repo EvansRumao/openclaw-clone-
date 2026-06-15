@@ -2,6 +2,7 @@ import chalk from "chalk";
 import { isCancel,text } from "@clack/prompts";
 import { defaultAgentConfig } from "./types";
 import { ActionTracker } from "./action-tracker";
+import { ToolExecutor } from "./toolExecutor";
 export async function runAgentMode(){
    console.log(chalk.bold("Running in Agent Mode..."));
 
@@ -18,4 +19,5 @@ export async function runAgentMode(){
 
    const config=defaultAgentConfig();
    const actiontracker =new ActionTracker();
+   const executor = new ToolExecutor(config,actiontracker);
 } 
