@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import figlet from "figlet";
 import { select, isCancel } from "@clack/prompts";
+import { runAgentMode } from "./agent/orschestrator";
 
 export async function runClientMode() {
   while (true) {
@@ -20,7 +21,7 @@ export async function runClientMode() {
     }
 
     if (options === "Agent") {
-      console.log(chalk.green("Agent Mode selected!"));
+      await runAgentMode();
       // Here you can add the code to start the Agent mode
     } else if (options === "plan") {
       console.log(chalk.green("Plan Mode selected!"));
