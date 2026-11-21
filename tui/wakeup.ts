@@ -2,6 +2,7 @@ import {select,isCancel} from "@clack/prompts"; //used for user input
 import chalk from "chalk";// used for colored text output
 import figlet from "figlet";//used for ASCII art text like big letters in our case 
 import { runClientMode } from "../modes/cli";//importing the function to run client 
+import { runTelegramMode } from "../modes/telegram";
 
 const Banner_font="Ansi Shadow";//font for the banner text
 const shadow=chalk.hex("#1b1a19");//color for the banner text
@@ -54,7 +55,8 @@ export async function wakeup(){
     console.log(chalk.green("Client Mode selected!"));
     // Here you can add the code to start the client mode
   } else if(options==="telegram"){
-    console.log(chalk.green("Telegram Mode selected!"));
+    // console.log(chalk.green("Telegram Mode selected!"));
+    await runTelegramMode();
     // Here you can add the code to start the telegram mode
   }else if(options==="exit"){
     console.log(chalk.dim("Exiting..."));
